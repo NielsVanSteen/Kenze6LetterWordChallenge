@@ -11,5 +11,5 @@ niels.van.steen@hotmail.com
 
 
 ## 2nd Push
-When I was laying in bed and thinking about a challenge a bit I realised I didn't follow the instructions 100%, for example given the word 'zambia' in the text file my first implementation of the interface 'IWordFinder' would only find one combination for the word zambia. 
+When I was laying in bed, while thinking about the challenge a bit I realised I didn't follow the instructions 100%, for example given the word 'zambia' in the text file my first implementation of the interface 'IWordFinder' would only find one combination for the word zambia. 
 So I used the logic al already had and made a new implementation of the 'IWordFinder' interface that would print all the different possibilities for 'zambia'. I also took a different approach and increased the performance.
