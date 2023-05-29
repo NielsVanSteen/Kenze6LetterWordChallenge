@@ -33,7 +33,7 @@ public class WordFinderRecursion : IWordFinder
         if (combinedLength == length )
         {
             AddWordFound(partOfWordFound);
-            PrintWordFound(_printWhileSearching, partOfWordFound );
+            IWordFinder.PrintWordFound(_printWhileSearching, partOfWordFound );
             return;
         }
         // Max Length exceeded, return.
@@ -45,33 +45,17 @@ public class WordFinderRecursion : IWordFinder
         var enumerable = searchWords.ToArray();
         foreach (var part in enumerable)
         {
-            Find(enumerable, length, CreateNewWordFound(partOfWordFound, part));
+            Find(enumerable, length, IWordFinder.CreateNewWordFound(partOfWordFound, part));
         }
     }
     
     private void AddWordFound(WordFound partOfWordFound)
     {
-        _wordsToFind = _wordsToFind.Where(w => w.WordString != partOfWordFound.Word).ToList(); // -> Most importance line for performance. :)
+        _wordsToFind = _wordsToFind.Where(w => w.WordString != partOfWordFound.Word).ToList();
         var wordFound = new WordFound(partOfWordFound.Parts, partOfWordFound.Word);
         _wordsFound.Add(wordFound);
     }
     
-    /// <summary>
-    /// Creates a new object to prevent reference issues.
-    /// </summary>
-    private WordFound CreateNewWordFound(WordFound wordFound, Word part)
-    {
-        var @new = new WordFound(wordFound.Parts, wordFound.Word);
-        @new.Parts.Add(new Part(part.WordString));
-        @new.Word += part.WordString;
-        return @new;
-    }
     
-    private void PrintWordFound(bool printWhileSearching, WordFound wordFound)
-    {
-        if (printWhileSearching)
-        {
-            wordFound.Print();
-        }
-    }
+   
 }

@@ -7,7 +7,7 @@ public class WordFound
 
     public WordFound(ICollection<Part> parts, string word)
     {
-        Parts = new List<Part>(parts);
+        Parts = new List<Part>(parts ?? new List<Part>());
         Word = word;
     }
 }
